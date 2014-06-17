@@ -266,20 +266,29 @@ namespace Kalkulator
                 listBox_Satuan_Hasil.Items.Clear();
                 int konversi_Dari = comboBox_1.SelectedIndex;
                 string dari = comboBox_1.Text.Trim();
-                for (int i = 0; i < comboBox_1.Items.Count; i++)
-                {
-                    try
-                    {
-                        KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                        listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i].ToString().PadRight(15) + " = " + konv.Panjang());
-                    }
-                    catch (Exception)
+                bool cek = true;
+                foreach (char i in textBox_Satuan_Input.Text)
+                    if(i=='.')
                     {
                         MessageBox.Show("Input False");
+                        cek = false;
                         break;
                     }
+                if(cek==true)
+                    for (int i = 0; i < comboBox_1.Items.Count; i++)
+                    {
+                        try
+                        {
+                            KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                            listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i].ToString().PadRight(15) + " = " + konv.Panjang());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Input False");
+                            break;
+                        }
                     
-                }
+                    }
             }
             else if (Konversi_Satuan == 2)
             {
@@ -287,11 +296,28 @@ namespace Kalkulator
                 listBox_Satuan_Hasil.Items.Clear();
                 int konversi_Dari = comboBox_1.SelectedIndex;
                 string dari = comboBox_1.Text.Trim();
-                for (int i = 0; i < comboBox_1.Items.Count; i++)
+                bool cek = true;
+                foreach (char i in textBox_Satuan_Input.Text)
+                if (i == '.')
                 {
-                    KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                    listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Area());
+                    MessageBox.Show("Input False");
+                    cek = false;
+                    break;
                 }
+                if (cek == true)
+                    for (int i = 0; i < comboBox_1.Items.Count; i++)
+                    {
+                        try
+                        {
+                            KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                            listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Area());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Input False");
+                            break;
+                        }
+                    }
             }
             else if (Konversi_Satuan == 3)
             {
@@ -299,11 +325,27 @@ namespace Kalkulator
                 listBox_Satuan_Hasil.Items.Clear();
                 int konversi_Dari = comboBox_1.SelectedIndex;
                 string dari = comboBox_1.Text.Trim();
-                for (int i = 0; i < comboBox_1.Items.Count; i++)
+                bool cek = true;
+                foreach (char i in textBox_Satuan_Input.Text)
+                if (i == '.')
                 {
-                    KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                    listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Berat());
+                    MessageBox.Show("Input False");
+                    cek = false;
+                    break;
                 }
+                if (cek == true)
+                    for (int i = 0; i < comboBox_1.Items.Count; i++)
+                    {
+                        try { 
+                        KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                        listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Berat());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Input False");
+                            break;
+                        }
+                    }
             }
             else if (Konversi_Satuan == 4)
             {
@@ -311,11 +353,27 @@ namespace Kalkulator
                 listBox_Satuan_Hasil.Items.Clear();
                 int konversi_Dari = comboBox_1.SelectedIndex;
                 string dari = comboBox_1.Text.Trim();
-                for (int i = 0; i < comboBox_1.Items.Count; i++)
+                bool cek = true;
+                foreach (char i in textBox_Satuan_Input.Text)
+                if (i == '.')
                 {
-                    KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                    listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Data());
+                    MessageBox.Show("Input False");
+                    cek = false;
+                    break;
                 }
+                if (cek == true)
+                    for (int i = 0; i < comboBox_1.Items.Count; i++)
+                    {
+                        try { 
+                        KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                        listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Data());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Input False");
+                            break;
+                        }
+                    }
             }
         }
         private void listBox_Hitung_DrawItem(object sender, DrawItemEventArgs e)
@@ -371,20 +429,29 @@ namespace Kalkulator
                     listBox_Satuan_Hasil.Items.Clear();
                     int konversi_Dari = comboBox_1.SelectedIndex;
                     string dari = comboBox_1.Text.Trim();
-                    for (int i = 0; i < comboBox_1.Items.Count; i++)
-                    {
-                        try
-                        {
-                            KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                            listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i].ToString().PadRight(15) + " = " + konv.Panjang());
-                        }
-                        catch (Exception)
+                    bool cek = true;
+                    foreach (char i in textBox_Satuan_Input.Text)
+                        if (i == '.')
                         {
                             MessageBox.Show("Input False");
+                            cek = false;
                             break;
                         }
+                    if (cek == true)
+                        for (int i = 0; i < comboBox_1.Items.Count; i++)
+                        {
+                            try
+                            {
+                                KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                                listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i].ToString().PadRight(15) + " = " + konv.Panjang());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Input False");
+                                break;
+                            }
 
-                    }
+                        }
                 }
                 else if (Konversi_Satuan == 2)
                 {
@@ -392,11 +459,28 @@ namespace Kalkulator
                     listBox_Satuan_Hasil.Items.Clear();
                     int konversi_Dari = comboBox_1.SelectedIndex;
                     string dari = comboBox_1.Text.Trim();
-                    for (int i = 0; i < comboBox_1.Items.Count; i++)
-                    {
-                        KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                        listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Area());
-                    }
+                    bool cek = true;
+                    foreach (char i in textBox_Satuan_Input.Text)
+                        if (i == '.')
+                        {
+                            MessageBox.Show("Input False");
+                            cek = false;
+                            break;
+                        }
+                    if (cek == true)
+                        for (int i = 0; i < comboBox_1.Items.Count; i++)
+                        {
+                            try
+                            {
+                                KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                                listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Area());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Input False");
+                                break;
+                            }
+                        }
                 }
                 else if (Konversi_Satuan == 3)
                 {
@@ -404,11 +488,28 @@ namespace Kalkulator
                     listBox_Satuan_Hasil.Items.Clear();
                     int konversi_Dari = comboBox_1.SelectedIndex;
                     string dari = comboBox_1.Text.Trim();
-                    for (int i = 0; i < comboBox_1.Items.Count; i++)
-                    {
-                        KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                        listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Berat());
-                    }
+                    bool cek = true;
+                    foreach (char i in textBox_Satuan_Input.Text)
+                        if (i == '.')
+                        {
+                            MessageBox.Show("Input False");
+                            cek = false;
+                            break;
+                        }
+                    if (cek == true)
+                        for (int i = 0; i < comboBox_1.Items.Count; i++)
+                        {
+                            try
+                            {
+                                KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                                listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Berat());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Input False");
+                                break;
+                            }
+                        }
                 }
                 else if (Konversi_Satuan == 4)
                 {
@@ -416,11 +517,28 @@ namespace Kalkulator
                     listBox_Satuan_Hasil.Items.Clear();
                     int konversi_Dari = comboBox_1.SelectedIndex;
                     string dari = comboBox_1.Text.Trim();
-                    for (int i = 0; i < comboBox_1.Items.Count; i++)
-                    {
-                        KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
-                        listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Data());
-                    }
+                    bool cek = true;
+                    foreach (char i in textBox_Satuan_Input.Text)
+                        if (i == '.')
+                        {
+                            MessageBox.Show("Input False");
+                            cek = false;
+                            break;
+                        }
+                    if (cek == true)
+                        for (int i = 0; i < comboBox_1.Items.Count; i++)
+                        {
+                            try
+                            {
+                                KonversiSatuan konv = new KonversiSatuan(dari, comboBox_1.Items[i].ToString().Trim(), Convert.ToDouble(textBox_Satuan_Input.Text));
+                                listBox_Satuan_Hasil.Items.Add(comboBox_1.Items[i] + "= " + konv.Data());
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Input False");
+                                break;
+                            }
+                        }
                 }
 
             }

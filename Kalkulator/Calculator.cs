@@ -28,7 +28,7 @@ namespace Kalkulator
             {
                 foreach (char i in inp)
                 {
-                    if (!Char.IsDigit(i) && i != '^' && i != '*' && i != '/' && i != '+' && i != '-' && i != '(' && i != ')' && i != '.')
+                    if (!Char.IsDigit(i) && i != '^' && i != '*' && i != '/' && i != '+' && i != '-' && i != '(' && i != ')' && i != ',')
                     {
                         cekError = false;
                         break;
@@ -118,11 +118,11 @@ namespace Kalkulator
                 }
             }
         }
-        private double hitung(double op1, double op2, char op) //Fungsi Perhitungan ^,*,/,+,-
+        private Double hitung(Double op1, Double op2, char op) //Fungsi Perhitungan ^,*,/,+,-
         {
             if (op == '^')
             {
-                double tmp = op1;
+                Double tmp = op1;
                 for (int i = 2; i <= op2; i++)
                     tmp *= op1;
                 return tmp;
